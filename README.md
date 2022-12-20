@@ -30,4 +30,4 @@ Visit this link to view some of my cool projects.
 
 * Run the following command in the root directory of this project: `bundle exec jekyll serve`
 
-Dummy
+Dummy c2
