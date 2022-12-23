@@ -11,6 +11,7 @@
 
       <div id="main">
         <div class="container-fluid">
+          <!-- post header -->
           <div class="row">
             <div class="col-12 my-5 text-center text-light">
               <h1>{{ page.project_title }}</h1>
@@ -18,36 +19,46 @@
             </div>
           </div>
 
-          {% for content in page.project_content %}
-            {% if content.type == "image" %}
-            <div class="row">
-              <div class="col-12 px-0 text-center">
-                <img class="mx-auto d-block my-3" src="{{site.baseurl}}{{content.body}}"/>
-                <figcaption class="figure-caption text-light">{{content.title}}</figcaption>
+          <!-- post content blocks -->
+          <div class="px-0 px-lg-5">
+            <div class="px-0 px-lg-5">
+              <div class="px-0 px-lg-5">
+                <div class="px-0 px-lg-5">
+                  <div class="px-0 px-lg-5">
+                    {% for content in page.project_content %}
+                      {% if content.type == "image" %}
+                      <div class="row">
+                        <div class="col-12 px-0 text-center">
+                          <img class="mx-auto d-block my-3" src="{{site.baseurl}}{{content.body}}"/>
+                          <figcaption class="figure-caption text-light">{{content.title}}</figcaption>
+                        </div>
+                      </div>
+                      {% elsif content.type == "paragraph" %}
+                      <div class="row">
+                        <div class="col-12 px-5 text-light content-paragraph">
+                          {% if content.title != null %}
+                            <h3 style="font-weight: 600 !important;">{{content.title}}</h3>
+                          {% endif %}
+                          {% if content.body != null %}
+                          <p>
+                            {{content.body}}
+                          </p>
+                          {% endif %}
+                        </div>
+                      </div>
+                      {% else %}
+                      <p>
+                        {% if content.body != null %}
+                          {{ content.body }}
+                        {% endif %}
+                      </p>
+                      {% endif %}
+                    {% endfor %}
+                  </div>
+                </div>
               </div>
             </div>
-            {% elsif content.type == "paragraph" %}
-            <div class="row">
-              <div class="col-12 px-5 text-light content-paragraph">
-                {% if content.title != null %}
-                  <h3>{{content.title}}</h3>
-                {% endif %}
-                {% if content.body != null %}
-                <p>
-                  {{content.body}}
-                </p>
-                {% endif %}
-
-              </div>
-            </div>
-            {% else %}
-            <p>
-              {% if content.body != null %}
-                {{ content.body }}
-              {% endif %}
-            </p>
-            {% endif %}
-          {% endfor %}
+          </div>
         </div>
       </div>
 

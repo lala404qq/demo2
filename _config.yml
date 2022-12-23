@@ -20,5 +20,5 @@ collections:
   images:
     output: true
 
-url: lala404qq.github.io
-baseurl: /demo2
+# url: lala404qq.github.io
+# baseurl: /demo2
